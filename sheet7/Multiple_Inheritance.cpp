@@ -43,7 +43,7 @@ public:
     }
     double SumEle()
     {
-        int sum = 0;
+        double sum = 0;
         
         for (int i = 0; i < n; i++)
         {
@@ -79,7 +79,7 @@ public:
         cout << "Enter m of Data2: ";
         cin >> m;
 
-        cout << "Enter elements of D1[" << m << "]:\n";
+        cout << "Enter elements of D2[" << m << "]:\n";
         for (int i = 0; i < m; i++)
         {
             cout << "D[" << i << "]: ";
@@ -105,7 +105,7 @@ public:
     }
     double SumEle()
     {
-        int sum = 0;
+        double sum = 0;
         
         for (int i = 0; i < m; i++)
         {
@@ -142,10 +142,13 @@ public:
     }
     double avg()
     {
-        return ((Data1::SumEle() + Data2::SumEle()) / (2 * n));
+        return ((Data1::SumEle() + Data2::SumEle()) / (n + m));
     }
     void display()
     {
+        Data1::display();
+        Data2::display();
+
         cout << "ND: " << ND << endl;
         cout << "Sum_T: " << Sum_T << endl;
     }
