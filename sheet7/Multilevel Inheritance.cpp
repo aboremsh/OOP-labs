@@ -6,6 +6,7 @@ class Rectangle
 protected:
     float Dim[10][2];
     int n;
+
 public:
     void read()
     {
@@ -15,10 +16,7 @@ public:
         cout << "Enter values of Matrix Dim[" << n << "][2]:\n";
         for (int i = 0; i < n; i++)
             for (int j = 0; j < 2; j++)
-            {
-                cout << "Dim[" << i << "][" << j << "]: ";
                 cin >> Dim[i][j];
-            }
     }
     float area(int a)
     {
@@ -27,7 +25,7 @@ public:
     void Print()
     {
         cout << "n: " << n << endl;
-        
+
         cout << "Dim[" << n << "][2]:\n";
         for (int i = 0; i < n; i++)
         {
@@ -44,23 +42,23 @@ class RArea : public Rectangle
 {
 protected:
     float RA[10];
+
 public:
     void set()
     {
-        Rectangle::read();
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < n; i++)
         {
             RA[i] = area(i);
         }
     }
     void Print()
     {
-        cout << "RA[10]: {";
-        
-        for (int i = 0; i < 10; i++)
+        cout << "RA[" << n << "]: {";
+
+        for (int i = 0; i < n; i++)
         {
-            if(i + 1 == 10)
+            if (i + 1 == n)
             {
                 cout << RA[i] << "}\n";
                 break;
@@ -74,29 +72,30 @@ class P_volume : public RArea
 {
     float H[10];
     float V[10];
+
 public:
     void set()
     {
-        cout << "Enter vaules of H[10]: ";
-        for (int i = 0; i < 10; i++)
+        Rectangle::read();
+        RArea::set();
+
+        cout << "Enter vaules of H[" << n << "]:\n";
+        for (int i = 0; i < n; i++)
         {
             cin >> H[i];
         }
-        
-        // Rectangle::read();
-        RArea::set();
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < n; i++)
         {
             V[i] = H[i] * RA[i];
         }
     }
     void Print()
     {
-        cout << "H[10]: {";
-        for (int i = 0; i < 10; i++)
+        cout << "H[" << n << "]: {";
+        for (int i = 0; i < n; i++)
         {
-            if(i + 1 == 10)
+            if (i + 1 == n)
             {
                 cout << H[i] << "}\n";
                 break;
@@ -104,10 +103,10 @@ public:
             cout << H[i] << ", ";
         }
 
-        cout << "V[10]: {";
-        for (int i = 0; i < 10; i++)
+        cout << "V[" << n << "]: {";
+        for (int i = 0; i < n; i++)
         {
-            if(i + 1 == 10)
+            if (i + 1 == n)
             {
                 cout << V[i] << "}\n";
                 break;
